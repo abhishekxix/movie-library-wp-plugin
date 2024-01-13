@@ -9,6 +9,7 @@ namespace Movie_Library\Inc;
 
 use Movie_Library\Inc\Post_Types\Movie;
 use Movie_Library\Inc\Post_Types\Person;
+use Movie_Library\Inc\Taxonomies\Hierarchical\Genre;
 
 /**
  * Movie_Library Main class.
@@ -56,6 +57,19 @@ final class Movie_Library {
 	}
 
 	/**
+	 * Registers the Custom Taxonomies defined by the movie-library Plugin.
+	 *
+	 * @since 0.1.0
+	 *
+	 * @return void
+	 */
+	private function register_custom_taxonomies() {
+		// Movie Post type taxonomies.
+		Genre::register_taxonomy();
+	}
+
+
+	/**
 	 * Starts the instance.
 	 *
 	 * @since 0.1.0
@@ -63,6 +77,7 @@ final class Movie_Library {
 	 */
 	private function start() {
 		$this->register_custom_post_types();
+		$this->register_custom_taxonomies();
 
 		add_action(
 			'init',
