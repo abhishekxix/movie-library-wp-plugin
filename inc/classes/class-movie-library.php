@@ -7,6 +7,8 @@
 
 namespace Movie_Library\Inc;
 
+use Movie_Library\Inc\Post_Types\Movie;
+
 /**
  * Movie_Library Main class.
  *
@@ -41,12 +43,25 @@ final class Movie_Library {
 	}
 
 	/**
+	 * Registers the Custom Post Types defined by the movie-library Plugin.
+	 *
+	 * @since 0.1.0
+	 *
+	 * @return void
+	 */
+	private function register_custom_post_types() {
+		Movie::register_cpt();
+	}
+
+	/**
 	 * Starts the instance.
 	 *
 	 * @since 0.1.0
 	 * @return void
 	 */
 	private function start() {
+		$this->register_custom_post_types();
+
 		add_action(
 			'init',
 			array( $this, 'load_text_domain' )
