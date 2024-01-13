@@ -8,6 +8,7 @@
 namespace Movie_Library\Inc;
 
 use Movie_Library\Inc\Post_Types\Movie;
+use Movie_Library\Inc\Post_Types\Person;
 
 /**
  * Movie_Library Main class.
@@ -51,6 +52,7 @@ final class Movie_Library {
 	 */
 	private function register_custom_post_types() {
 		Movie::register_cpt();
+		Person::register_cpt();
 	}
 
 	/**
