@@ -10,6 +10,7 @@ namespace Movie_Library\Inc;
 use Movie_Library\Inc\Post_Types\Movie;
 use Movie_Library\Inc\Post_Types\Person;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Genre;
+use Movie_Library\Inc\Taxonomies\Hierarchical\Label;
 
 /**
  * Movie_Library Main class.
@@ -66,6 +67,7 @@ final class Movie_Library {
 	private function register_custom_taxonomies() {
 		// Movie Post type taxonomies.
 		Genre::register_taxonomy();
+		Label::register_taxonomy();
 	}
 
 
