@@ -11,6 +11,7 @@ use Movie_Library\Inc\Post_Types\Movie;
 use Movie_Library\Inc\Post_Types\Person;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Genre;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Label;
+use Movie_Library\Inc\Taxonomies\Hierarchical\Language;
 
 /**
  * Movie_Library Main class.
@@ -68,6 +69,7 @@ final class Movie_Library {
 		// Movie Post type taxonomies.
 		Genre::register_taxonomy();
 		Label::register_taxonomy();
+		Language::register_taxonomy();
 	}
 
 
