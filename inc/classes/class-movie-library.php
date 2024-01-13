@@ -14,6 +14,7 @@ use Movie_Library\Inc\Taxonomies\Hierarchical\Label;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Language;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Person_Career;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Production_Company;
+use Movie_Library\Inc\Taxonomies\Non_Hierarchical\Movie_Tag;
 
 /**
  * Movie_Library Main class.
@@ -73,6 +74,7 @@ final class Movie_Library {
 		Label::register_taxonomy();
 		Language::register_taxonomy();
 		Production_Company::register_taxonomy();
+		Movie_Tag::register_taxonomy();
 
 		// Person Post type taxonomies.
 		Person_Career::register_taxonomy();
