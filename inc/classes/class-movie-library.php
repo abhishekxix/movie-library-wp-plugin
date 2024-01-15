@@ -11,6 +11,7 @@ use Movie_Library\Inc\Dashboard_Widgets\Top_Rated;
 use Movie_Library\Inc\Dashboard_Widgets\Upcoming;
 use Movie_Library\Inc\Dashboard_Widgets\Upcoming_TMDB;
 use Movie_Library\Inc\Database_API\Movie_Meta;
+use Movie_Library\Inc\Database_API\Person_Meta;
 use Movie_Library\Inc\Post_Types\Movie;
 use Movie_Library\Inc\Post_Types\Person;
 use Movie_Library\Inc\Rewrite_API\Movie_Rules;
@@ -222,6 +223,7 @@ final class Movie_Library {
 	 */
 	private function perform_db_changes() {
 		Movie_Meta::add_table();
+		Person_Meta::add_table();
 	}
 
 	/**
