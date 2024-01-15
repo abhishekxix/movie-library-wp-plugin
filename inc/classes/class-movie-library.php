@@ -7,6 +7,7 @@
 
 namespace Movie_Library\Inc;
 
+use Movie_Library\Inc\Dashboard_Widgets\Top_Rated;
 use Movie_Library\Inc\Post_Types\Movie;
 use Movie_Library\Inc\Post_Types\Person;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Genre;
@@ -121,6 +122,17 @@ final class Movie_Library {
 		Person_Shortcode::add_shortcode();
 	}
 
+
+	/**
+	 * Adds the dashboard widgets
+	 *
+	 * @since 0.1.0
+	 * @return void
+	 */
+	private function add_dashboard_widgets() {
+		Top_Rated::add_widget_to_dashboard();
+	}
+
 	/**
 	 * Starts the instance.
 	 *
@@ -133,6 +145,7 @@ final class Movie_Library {
 		$this->register_custom_metaboxes();
 		$this->register_admin_menus();
 		$this->register_shortcodes();
+		$this->add_dashboard_widgets();
 
 		add_action(
 			'init',
