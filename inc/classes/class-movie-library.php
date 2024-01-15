@@ -100,6 +100,7 @@ final class Movie_Library {
 	 * @return void
 	 */
 	public function deactivation_function() {
+		flush_rewrite_rules();
 	}
 
 	/**
