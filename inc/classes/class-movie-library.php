@@ -82,6 +82,15 @@ final class Movie_Library {
 		Person_Career::register_taxonomy();
 	}
 
+	/**
+	 * Register the custom metaboxes.
+	 *
+	 * @return void
+	 */
+	private function register_custom_metaboxes() {
+		Meta_Boxes\Movie\Basic_Metabox::register();
+	}
+
 
 	/**
 	 * Starts the instance.
@@ -92,6 +101,7 @@ final class Movie_Library {
 	private function start() {
 		$this->register_custom_post_types();
 		$this->register_custom_taxonomies();
+		$this->register_custom_metaboxes();
 
 		add_action(
 			'init',
