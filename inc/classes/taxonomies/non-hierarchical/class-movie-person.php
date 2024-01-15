@@ -44,6 +44,12 @@ class Movie_Person extends Base {
 			'hierarchical'      => false,
 			'show_in_rest'      => true,
 			'show_admin_column' => false,
+			'capabilities'      => array(
+				'manage_terms' => 'manage_' . self::SLUG,
+				'edit_terms'   => 'edit_' . self::SLUG,
+				'delete_terms' => 'delete_' . self::SLUG,
+				'assign_terms' => 'edit_mlib-movies',
+			),
 		);
 
 		return $args;

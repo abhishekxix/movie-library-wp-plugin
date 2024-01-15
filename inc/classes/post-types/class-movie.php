@@ -40,12 +40,12 @@ class Movie extends Base {
 		$labels = $this->get_cpt_labels();
 
 		$args = array(
-			'label'         => __(
+			'label'           => __(
 				'Movies',
 				'movie-library'
 			),
-			'labels'        => $labels,
-			'supports'      => array(
+			'labels'          => $labels,
+			'supports'        => array(
 				'title',
 				'editor',
 				'excerpt',
@@ -54,15 +54,17 @@ class Movie extends Base {
 				'comments',
 				'custom-fields',
 			),
-			'show_in_rest'  => true,
-			'public'        => true,
-			'description'   => __(
+			'show_in_rest'    => true,
+			'public'          => true,
+			'description'     => __(
 				'A Custom Post type that represents a movie',
 				'movie-library'
 			),
-			'menu_icon'     => 'dashicons-video-alt',
-			'menu_position' => 5,
-			'has_archive'   => true,
+			'menu_icon'       => 'dashicons-video-alt',
+			'menu_position'   => 5,
+			'has_archive'     => true,
+			'capability_type' => 'mlib-movie',
+			'map_meta_cap'    => true,
 		);
 
 		return $args;

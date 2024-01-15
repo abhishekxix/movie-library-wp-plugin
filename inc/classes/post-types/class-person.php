@@ -39,12 +39,12 @@ class Person extends Base {
 		$labels = $this->get_cpt_labels();
 
 		$args = array(
-			'label'         => __(
+			'label'           => __(
 				'Persons',
 				'movie-library'
 			),
-			'labels'        => $labels,
-			'supports'      => array(
+			'labels'          => $labels,
+			'supports'        => array(
 				'title',
 				'editor',
 				'excerpt',
@@ -52,15 +52,17 @@ class Person extends Base {
 				'author',
 				'custom-fields',
 			),
-			'show_in_rest'  => true,
-			'public'        => true,
-			'description'   => __(
+			'show_in_rest'    => true,
+			'public'          => true,
+			'description'     => __(
 				'A Custom Post type that represents a person',
 				'movie-library'
 			),
-			'menu_icon'     => 'dashicons-businessperson',
-			'menu_position' => 5,
-			'has_archive'   => true,
+			'menu_icon'       => 'dashicons-businessperson',
+			'menu_position'   => 5,
+			'has_archive'     => true,
+			'capability_type' => 'mlib-person',
+			'map_meta_cap'    => true,
 		);
 
 		return $args;
