@@ -12,6 +12,8 @@ use Movie_Library\Inc\Dashboard_Widgets\Upcoming;
 use Movie_Library\Inc\Dashboard_Widgets\Upcoming_TMDB;
 use Movie_Library\Inc\Post_Types\Movie;
 use Movie_Library\Inc\Post_Types\Person;
+use Movie_Library\Inc\Rewrite_API\Movie_Rules;
+use Movie_Library\Inc\Rewrite_API\Person_Rules;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Genre;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Label;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Language;
@@ -80,6 +82,16 @@ final class Movie_Library {
 		$person_career_taxonomy->register_custom_taxonomy();
 
 		$this->register_custom_roles();
+
+		/**
+		 * We have to setup rewrite rules at activation also because by default they need to be flushed.
+		 */
+		$movie_rules = new Movie_Rules();
+		$movie_rules->add_permastruct();
+		$person_rules = new Person_Rules();
+		$person_rules->add_permastruct();
+
+		flush_rewrite_rules();
 	}
 
 	/**
@@ -181,6 +193,16 @@ final class Movie_Library {
 	}
 
 	/**
+	 * Sets up the custom rewrite rules for the plugin
+	 *
+	 * @return void
+	 */
+	private function setup_rewrite_rules() {
+		Movie_Rules::add_rules();
+		Person_Rules::add_rules();
+	}
+
+	/**
 	 * Starts the instance.
 	 *
 	 * @since 0.1.0
@@ -193,6 +215,7 @@ final class Movie_Library {
 		$this->register_admin_menus();
 		$this->register_shortcodes();
 		$this->add_dashboard_widgets();
+		$this->setup_rewrite_rules();
 
 		add_action(
 			'init',
