@@ -17,6 +17,7 @@ use Movie_Library\Inc\Taxonomies\Hierarchical\Production_Company;
 use Movie_Library\Inc\Taxonomies\Non_Hierarchical\Movie_Person;
 use Movie_Library\Inc\Taxonomies\Non_Hierarchical\Movie_Tag;
 use Movie_Library\Inc\Settings\Options_Page;
+use Movie_Library\Inc\Shortcodes\Movie_Shortcode;
 
 /**
  * Movie_Library Main class.
@@ -108,6 +109,17 @@ final class Movie_Library {
 	}
 
 	/**
+	 * Registers the Shortcodes defined by the movie-library Plugin.
+	 *
+	 * @since 0.1.0
+	 *
+	 * @return void
+	 */
+	private function register_shortcodes() {
+		Movie_Shortcode::add_shortcode();
+	}
+
+	/**
 	 * Starts the instance.
 	 *
 	 * @since 0.1.0
@@ -118,6 +130,7 @@ final class Movie_Library {
 		$this->register_custom_taxonomies();
 		$this->register_custom_metaboxes();
 		$this->register_admin_menus();
+		$this->register_shortcodes();
 
 		add_action(
 			'init',
