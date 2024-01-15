@@ -325,6 +325,16 @@ final class Movie_Library {
 		$person_controller->register_routes();
 	}
 
+	/**
+	 * Adds the WP CLI commands.
+	 *
+	 * @return void
+	 */
+	private function register_wp_cli_commands() {
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			require_once __DIR__ . '/wp-cli/class-export-command.php';
+		}
+	}
 
 	/**
 	 * Starts the instance.
@@ -340,6 +350,7 @@ final class Movie_Library {
 		$this->register_shortcodes();
 		$this->add_dashboard_widgets();
 		$this->setup_rewrite_rules();
+		$this->register_wp_cli_commands();
 
 		add_action(
 			'init',
