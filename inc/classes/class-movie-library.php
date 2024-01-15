@@ -91,6 +91,7 @@ final class Movie_Library {
 		Meta_Boxes\Movie\Basic_Metabox::register();
 		Meta_Boxes\Movie\Crew_Metabox::register();
 		Meta_Boxes\Movie\MLib_Movie_Carousel_Metabox::register();
+		Meta_Boxes\Person\Basic_Metabox::register();
 	}
 
 
