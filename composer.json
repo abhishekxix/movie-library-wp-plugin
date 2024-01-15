@@ -2,10 +2,9 @@
     "name": "abhishekxix/movie-library",
     "description": "A WordPress Plugin that turns your website into a Movie Library.",
     "type": "project",
-    "require": {
-    },
     "require-dev": {
-        "wp-cli/wp-cli": "^2.9"
+        "wp-cli/wp-cli": "^2.9",
+        "phpstan/phpstan": "^1.10"
     },
     "authors": [
         {

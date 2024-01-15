@@ -1,0 +1,12 @@
+parameters:
+	level: max
+	scanFiles:
+		- ../../../index.php
+		- ../../../wp-config.php
+	scanDirectories:
+		- ../../../wp-content/plugins
+		- ../../../wp-content/mu-plugins
+		- vendor/wp-cli
+		- ../../../wp-includes
+	paths:
+		- ../../../wp-content/plugins/movie-library
