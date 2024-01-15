@@ -9,6 +9,7 @@ namespace Movie_Library\Inc;
 
 use Movie_Library\Inc\Dashboard_Widgets\Top_Rated;
 use Movie_Library\Inc\Dashboard_Widgets\Upcoming;
+use Movie_Library\Inc\Dashboard_Widgets\Upcoming_TMDB;
 use Movie_Library\Inc\Post_Types\Movie;
 use Movie_Library\Inc\Post_Types\Person;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Genre;
@@ -133,6 +134,7 @@ final class Movie_Library {
 	private function add_dashboard_widgets() {
 		Top_Rated::add_widget_to_dashboard();
 		Upcoming::add_widget_to_dashboard();
+		Upcoming_TMDB::add_widget_to_dashboard();
 	}
 
 	/**
