@@ -10,6 +10,7 @@ namespace Movie_Library\Inc;
 use Movie_Library\Inc\Dashboard_Widgets\Top_Rated;
 use Movie_Library\Inc\Dashboard_Widgets\Upcoming;
 use Movie_Library\Inc\Dashboard_Widgets\Upcoming_TMDB;
+use Movie_Library\Inc\Database_API\Movie_Meta;
 use Movie_Library\Inc\Post_Types\Movie;
 use Movie_Library\Inc\Post_Types\Person;
 use Movie_Library\Inc\Rewrite_API\Movie_Rules;
@@ -82,6 +83,7 @@ final class Movie_Library {
 		$person_career_taxonomy->register_custom_taxonomy();
 
 		$this->register_custom_roles();
+		$this->perform_db_changes();
 
 		/**
 		 * We have to setup rewrite rules at activation also because by default they need to be flushed.
@@ -211,6 +213,15 @@ final class Movie_Library {
 	private function setup_rewrite_rules() {
 		Movie_Rules::add_rules();
 		Person_Rules::add_rules();
+	}
+
+	/**
+	 * Performs the changes in the Database as required.
+	 *
+	 * @return void
+	 */
+	private function perform_db_changes() {
+		Movie_Meta::add_table();
 	}
 
 	/**
