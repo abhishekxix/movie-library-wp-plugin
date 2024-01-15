@@ -14,6 +14,7 @@ use Movie_Library\Inc\Database_API\Movie_Meta;
 use Movie_Library\Inc\Database_API\Person_Meta;
 use Movie_Library\Inc\Post_Types\Movie;
 use Movie_Library\Inc\Post_Types\Person;
+use Movie_Library\Inc\REST_API\Posts_Controller;
 use Movie_Library\Inc\Rewrite_API\Movie_Rules;
 use Movie_Library\Inc\Rewrite_API\Person_Rules;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Genre;
@@ -311,6 +312,19 @@ final class Movie_Library {
 		);
 	}
 
+	/**
+	 * Initializes the Custom REST endpoints.
+	 *
+	 * @return void
+	 */
+	public function initialize_rest_api() {
+		$movie_controller  = new Posts_Controller( 'mlib-movie', 'mlib-movie' );
+		$person_controller = new Posts_Controller( 'mlib-person', 'mlib-person' );
+
+		$movie_controller->register_routes();
+		$person_controller->register_routes();
+	}
+
 
 	/**
 	 * Starts the instance.
@@ -353,6 +367,8 @@ final class Movie_Library {
 		);
 
 		add_action( 'init', array( $this, 'register_db_names' ) );
+
+		add_action( 'rest_api_init', array( $this, 'initialize_rest_api' ) );
 	}
 
 	/**
