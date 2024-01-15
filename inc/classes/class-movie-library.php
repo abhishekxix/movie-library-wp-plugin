@@ -227,6 +227,16 @@ final class Movie_Library {
 	}
 
 	/**
+	 * Register the custom tables to $wpdb for metadata functions.
+	 *
+	 * @return void
+	 */
+	public function register_db_names() {
+		Movie_Meta::register_meta_table_name();
+		Person_Meta::register_meta_table_name();
+	}
+
+	/**
 	 * Starts the instance.
 	 *
 	 * @since 0.1.0
@@ -255,6 +265,8 @@ final class Movie_Library {
 			MLIB_PLUGIN_FILE,
 			array( $this, 'deactivation_function' )
 		);
+
+		add_action( 'init', array( $this, 'register_db_names' ) );
 	}
 
 	/**
