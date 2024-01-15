@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "movie-library/movie-block",
+	"title": "Single movie",
+	"category": "movie-library",
+	"icon": "video-alt",
+	"description": "Displays a single movie.",
+	"keywords": ["mlib-movie", "movie", "single"],
+	"version": "0.1.0",
+	"textdomain": "movie-library",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"movie": {
+			"type": "integer",
+			"default": 0
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

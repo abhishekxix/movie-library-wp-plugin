@@ -7,6 +7,7 @@
 
 namespace Movie_Library\Inc;
 
+use Movie_Library\Inc\Block_Editor\Block_Editor;
 use Movie_Library\Inc\Dashboard_Widgets\Top_Rated;
 use Movie_Library\Inc\Dashboard_Widgets\Upcoming;
 use Movie_Library\Inc\Dashboard_Widgets\Upcoming_TMDB;
@@ -351,6 +352,7 @@ final class Movie_Library {
 		$this->add_dashboard_widgets();
 		$this->setup_rewrite_rules();
 		$this->register_wp_cli_commands();
+		Block_Editor::init();
 
 		add_action(
 			'init',

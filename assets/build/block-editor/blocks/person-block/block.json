@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "movie-library/person-block",
+  "title": "Single person",
+  "category": "movie-library",
+  "icon": "businessperson",
+  "description": "Displays a single person.",
+  "keywords": [
+    "mlib-person",
+    "person",
+    "single"
+  ],
+  "version": "0.1.0",
+  "textdomain": "movie-library",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "person": {
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
