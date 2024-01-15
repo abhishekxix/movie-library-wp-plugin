@@ -100,6 +100,7 @@ final class Movie_Library {
 	 * @return void
 	 */
 	public function deactivation_function() {
+		$this->delete_custom_roles();
 		flush_rewrite_rules();
 	}
 
@@ -191,6 +192,15 @@ final class Movie_Library {
 	 */
 	private function register_custom_roles() {
 		Movie_Manager::add_role();
+	}
+
+	/**
+	 * Deletes the custom roles
+	 *
+	 * @return void
+	 */
+	private function delete_custom_roles() {
+		Movie_Manager::remove_role();
 	}
 
 	/**
