@@ -22,6 +22,7 @@ use Movie_Library\Inc\Taxonomies\Non_Hierarchical\Movie_Tag;
 use Movie_Library\Inc\Settings\Options_Page;
 use Movie_Library\Inc\Shortcodes\Movie_Shortcode;
 use Movie_Library\Inc\Shortcodes\Person_Shortcode;
+use Movie_Library\Inc\User_Roles\Movie_Manager;
 
 /**
  * Movie_Library Main class.
@@ -46,6 +47,39 @@ final class Movie_Library {
 	 * @return void
 	 */
 	public function activation_function() {
+		/**
+		 * We need to register post types at activation hook because they are being registered at `init` by default.
+		 * `init` won't be run after activation hook because of redirection.
+		 */
+		$movie_cpt = new Movie();
+		$movie_cpt->register_custom_post_type();
+		$person_cpt = new Person();
+		$person_cpt->register_custom_post_type();
+
+		// Movie Post type taxonomies.
+		$genre_taxonomy = new Genre();
+		$genre_taxonomy->register_custom_taxonomy();
+
+		$label_taxonomy = new Label();
+		$label_taxonomy->register_custom_taxonomy();
+
+		$language_taxonomy = new Language();
+		$language_taxonomy->register_custom_taxonomy();
+
+		$production_company_taxonomy = new Production_Company();
+		$production_company_taxonomy->register_custom_taxonomy();
+
+		$movie_person_taxonomy = new Movie_Person();
+		$movie_person_taxonomy->register_custom_taxonomy();
+
+		$movie_tag_taxonomy = new Movie_Tag();
+		$movie_tag_taxonomy->register_custom_taxonomy();
+
+		// Person Post type taxonomies.
+		$person_career_taxonomy = new Person_Career();
+		$person_career_taxonomy->register_custom_taxonomy();
+
+		$this->register_custom_roles();
 	}
 
 	/**
@@ -135,6 +169,15 @@ final class Movie_Library {
 		Top_Rated::add_widget_to_dashboard();
 		Upcoming::add_widget_to_dashboard();
 		Upcoming_TMDB::add_widget_to_dashboard();
+	}
+
+	/**
+	 * Registers the custom roles
+	 *
+	 * @return void
+	 */
+	private function register_custom_roles() {
+		Movie_Manager::add_role();
 	}
 
 	/**
