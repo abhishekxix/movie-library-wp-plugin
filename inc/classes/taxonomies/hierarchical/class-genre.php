@@ -50,6 +50,10 @@ class Genre extends Base {
 				'delete_terms' => 'delete_' . self::SLUG,
 				'assign_terms' => 'edit_mlib-movies',
 			),
+			'rewrite'           => array(
+				'slug'       => 'genre',
+				'with_front' => false,
+			),
 		);
 
 		return $args;

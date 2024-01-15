@@ -65,6 +65,10 @@ class Movie extends Base {
 			'has_archive'     => true,
 			'capability_type' => 'mlib-movie',
 			'map_meta_cap'    => true,
+			'rewrite'         => array(
+				'slug'       => 'mlib-movie',
+				'with_front' => false,
+			),
 		);
 
 		return $args;

@@ -50,6 +50,10 @@ class Person_Career extends Base {
 				'delete_terms' => 'delete_' . self::SLUG,
 				'assign_terms' => 'edit_mlib-persons',
 			),
+			'rewrite'           => array(
+				'slug'       => 'career',
+				'with_front' => false,
+			),
 		);
 
 		return $args;

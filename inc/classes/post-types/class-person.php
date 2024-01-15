@@ -63,6 +63,10 @@ class Person extends Base {
 			'has_archive'     => true,
 			'capability_type' => 'mlib-person',
 			'map_meta_cap'    => true,
+			'rewrite'         => array(
+				'slug'       => 'mlib-person',
+				'with_front' => false,
+			),
 		);
 
 		return $args;
