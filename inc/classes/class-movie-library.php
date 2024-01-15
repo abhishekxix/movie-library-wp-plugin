@@ -18,6 +18,7 @@ use Movie_Library\Inc\Taxonomies\Non_Hierarchical\Movie_Person;
 use Movie_Library\Inc\Taxonomies\Non_Hierarchical\Movie_Tag;
 use Movie_Library\Inc\Settings\Options_Page;
 use Movie_Library\Inc\Shortcodes\Movie_Shortcode;
+use Movie_Library\Inc\Shortcodes\Person_Shortcode;
 
 /**
  * Movie_Library Main class.
@@ -117,6 +118,7 @@ final class Movie_Library {
 	 */
 	private function register_shortcodes() {
 		Movie_Shortcode::add_shortcode();
+		Person_Shortcode::add_shortcode();
 	}
 
 	/**
