@@ -237,6 +237,82 @@ final class Movie_Library {
 	}
 
 	/**
+	 * Loads the styles and scripts in admin.
+	 *
+	 * @since 0.1.0
+	 * @return void
+	 */
+	public function enqueue_scripts_and_styles() {
+		wp_enqueue_style(
+			'select2-css',
+			'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css',
+			array(),
+			'4.1.0-rc.0'
+		);
+		wp_enqueue_script(
+			'select2-js',
+			'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js',
+			array( 'jquery' ),
+			'4.1.0-rc.0',
+			false
+		);
+
+		wp_enqueue_script(
+			'select2-init',
+			MLIB_ASSETS_URI . '/js/select2-init.js',
+			array( 'jquery' ),
+			'1.0.0',
+			false
+		);
+
+		wp_enqueue_script(
+			'mlib-movie-carousel-metabox',
+			MLIB_ASSETS_URI . '/js/movie-carousel-metabox.js',
+			array( 'jquery' ),
+			'0.1.0',
+			array(
+				'in_footer' => true,
+			)
+		);
+
+		wp_enqueue_script(
+			'mlib-image-gallery-metabox',
+			MLIB_ASSETS_URI . '/js/image-gallery-metabox.js',
+			array( 'jquery' ),
+			'0.1.0',
+			array(
+				'in_footer' => true,
+			)
+		);
+
+		wp_enqueue_script(
+			'mlib-video-gallery-metabox',
+			MLIB_ASSETS_URI . '/js/video-gallery-metabox.js',
+			array( 'jquery' ),
+			'0.1.0',
+			array(
+				'in_footer' => true,
+			)
+		);
+	}
+
+	/**
+	 * Loads the styles and scripts in frontend.
+	 *
+	 * @since 0.1.0
+	 * @return void
+	 */
+	public function enqueue_frontend_scripts_and_styles() {
+		wp_enqueue_style(
+			'movie-library_custom_css',
+			MLIB_ASSETS_URI . '/css/styles.css',
+			array(),
+			'1.0.0'
+		);
+	}
+
+
+	/**
 	 * Starts the instance.
 	 *
 	 * @since 0.1.0
@@ -254,6 +330,16 @@ final class Movie_Library {
 		add_action(
 			'init',
 			array( $this, 'load_text_domain' )
+		);
+
+		add_action(
+			'admin_enqueue_scripts',
+			array( $this, 'enqueue_scripts_and_styles' )
+		);
+
+		add_action(
+			'wp_enqueue_scripts',
+			array( $this, 'enqueue_frontend_scripts_and_styles' )
 		);
 
 		register_activation_hook(
