@@ -89,6 +89,7 @@ final class Movie_Library {
 	 */
 	private function register_custom_metaboxes() {
 		Meta_Boxes\Movie\Basic_Metabox::register();
+		Meta_Boxes\Movie\Crew_Metabox::register();
 	}
 
 
