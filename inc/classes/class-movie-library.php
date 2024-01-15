@@ -16,6 +16,7 @@ use Movie_Library\Inc\Taxonomies\Hierarchical\Person_Career;
 use Movie_Library\Inc\Taxonomies\Hierarchical\Production_Company;
 use Movie_Library\Inc\Taxonomies\Non_Hierarchical\Movie_Person;
 use Movie_Library\Inc\Taxonomies\Non_Hierarchical\Movie_Tag;
+use Movie_Library\Inc\Settings\Options_Page;
 
 /**
  * Movie_Library Main class.
@@ -96,6 +97,15 @@ final class Movie_Library {
 		Meta_Boxes\Video\MLib_Media_Video_Metabox::register();
 	}
 
+	/**
+	 * Registers the settings sub menu.
+	 *
+	 * @return void
+	 * @since 0.1.0
+	 */
+	private function register_admin_menus() {
+		Options_Page::register();
+	}
 
 	/**
 	 * Starts the instance.
@@ -107,6 +117,7 @@ final class Movie_Library {
 		$this->register_custom_post_types();
 		$this->register_custom_taxonomies();
 		$this->register_custom_metaboxes();
+		$this->register_admin_menus();
 
 		add_action(
 			'init',
