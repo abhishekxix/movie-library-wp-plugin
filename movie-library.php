@@ -22,21 +22,21 @@ define( 'MLIB_REST_NAMESPACE', 'movie-library/v1' );
 /**
  * The Plugin file for Movie Library Plugin
  *
- * @var string
+ * @var string $MLIB_PLUGIN_FILE
  */
 define( 'MLIB_PLUGIN_FILE', __FILE__ );
 
 /**
  * The Plugin directory for Movie Library Plugin
  *
- * @var string
+ * @var string $MLIB_PLUGIN_DIR
  */
 define( 'MLIB_PLUGIN_DIR', __DIR__ );
 
 /**
  * The URI for the Assets
  *
- * @var string
+ * @var string $MLIB_ASSETS_URI
  */
 define(
 	'MLIB_ASSETS_URI',
@@ -46,7 +46,7 @@ define(
 /**
  * The Directory for the Assets
  *
- * @var string
+ * @var string $MLIB_ASSETS_DIR
  */
 define(
 	'MLIB_ASSETS_DIR',
@@ -56,7 +56,7 @@ define(
 /**
  * The Directory for the Block editor assets
  *
- * @var string
+ * @var string $MLIB_EDITOR_ASSETS_DIR
  */
 define(
 	'MLIB_EDITOR_ASSETS_DIR',

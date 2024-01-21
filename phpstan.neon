@@ -1,8 +1,11 @@
 parameters:
 	level: max
+	bootstrapFiles:
+		- phpstan-bootstrap.php
 	scanFiles:
 		- ../../../index.php
 		- ../../../wp-config.php
+		- ../../../wp-includes/link-template.php
 	scanDirectories:
 		- ../../../wp-content/plugins
 		- ../../../wp-content/mu-plugins
